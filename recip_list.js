@@ -18,6 +18,7 @@ amqp.connect('amqp://datdb.cphbusiness.dk', function (err, conn) {
                 ssn: args.ssn,
                 amount: args.queues.length
             }
+            console.log(`Sending meta-data to 'ckkm-route-meta' with the object: ${meta}`);
             ch.sendToQueue('ckkm-route-meta', new Buffer(JSON.stringify(meta)));
         }, {noAck: true});
     });
