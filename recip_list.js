@@ -14,6 +14,11 @@ amqp.connect('amqp://datdb.cphbusiness.dk', function (err, conn) {
             args.queues.forEach(function(element) {
                 ch.sendToQueue(element, new Buffer(JSON.stringify(args)))
             });
+            let meta = {
+                ssn: args.ssn,
+                amount: args.queues.length
+            }
+            ch.sendToQueue('ckkm-route-meta', new Buffer(JSON.stringify(meta)));
         }, {noAck: true});
     });
 });

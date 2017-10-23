@@ -2,7 +2,7 @@ let amqp = require('amqplib/callback_api');
 
 let args = 
 {
-    ssn: 2310772323,
+    ssn: '231077-2323',
     creditScore: 700,
     loanAmount: 300000,
     loanDuration: 36,
